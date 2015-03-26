@@ -8,6 +8,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/crossjs/dong"
+  },
   "keywords": [
     "fed", "tool",
     "spm", "seajs",
@@ -19,6 +23,10 @@
     "email": "liwenfu@crossjs.com"
   },
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crossjs/dong/issues"
+  },
+  "homepage": "https://github.com/crossjs/dong",
   "dependencies": {
     "chalk": "^0.5.1",
     "commander": "^2.6.0",

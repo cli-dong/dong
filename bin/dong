@@ -1,0 +1,88 @@
+#!/usr/bin/env node
+
+'use strict';
+
+// check update first
+require('update-notifier')({
+  pkg: require('../package.json')
+}).notify({
+  defer: false
+});
+
+var chalk = require('chalk')
+
+console.log(chalk.cyan('        ___                 '))
+console.log(chalk.cyan('    ____/ /___  ____  ____  '))
+console.log(chalk.cyan('   / __  / __ \\/ __ \\/ __ \\ '))
+console.log(chalk.cyan('  / /_/ / /_/ / / / / /_/ / '))
+console.log(chalk.cyan('  \\____/\\____/_/ /_/\\__, /  '))
+console.log(chalk.cyan('                   /____/   '))
+console.log('')
+
+var commander = require('commander')
+
+process.on('exit', function() {
+  if (process.argv.length === 2) {
+    commander.help()
+  }
+})
+
+commander
+  // version
+  .version(require('../package').version, '-v, --version')
+  // usage
+  .usage('<command> [options]')
+
+// init
+commander
+  .command('init')
+  .description('初始化项目文件')
+  .option('-f, --force', '直接覆盖，不做目录非空校验')
+  .action(function(type, options) {
+    if (!options) {
+      options = type
+      type = undefined
+    }
+    require('dong-init')({
+      type: type || 'web',
+      force: options.force
+    })
+  })
+  .on('--help', function(){
+    console.log('  Examples:')
+    console.log('')
+    console.log(chalk.gray('    $ ') +
+                chalk.magenta('dong init web') +
+                chalk.gray(' ....... Web 项目'))
+    console.log(chalk.gray('    $ ') +
+                chalk.magenta('dong init sea') +
+                chalk.gray(' ....... SeaJS 及其配置文件'))
+    console.log(chalk.gray('    $ ') +
+                chalk.magenta('dong init spm') +
+                chalk.gray(' ....... SPM 模块'))
+    console.log(chalk.gray('    $ ') +
+                chalk.magenta('dong init mod') +
+                chalk.gray(' ....... 应用工厂 UI Module'))
+    console.log('')
+  })
+
+// serve
+commander
+  .command('serve')
+  .description('启动 Web 服务')
+  .option('-r, --root <root>', 'Web 服务根目录，默认 `.`')
+  .option('-H, --host <host>', '服务域名，默认 `127.0.0.1`')
+  .option('-p, --port <port>', '监听端口，默认 `9527`')
+  .option('-m, --mock <mock>', '接口模拟数据路径，默认 `api`')
+  .option('-o, --open', '自动在浏览器打开，默认 `false`')
+  .action(function() {
+    require('dong-serve')({
+      root: this.root,
+      host: this.host,
+      port: this.port,
+      mock: this.mock,
+      open: this.open
+    })
+  })
+
+commander.parse(process.argv)

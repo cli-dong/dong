@@ -1,0 +1,29 @@
+{
+  "name": "dong",
+  "version": "0.0.0",
+  "description": "yet another fed tool",
+  "bin": {
+    "dong": "./bin/dong"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fed", "tool",
+    "spm", "seajs",
+    "mock", "api",
+    "scaffold", "scaffolding"
+  ],
+  "author": {
+    "name": "crossjs",
+    "email": "liwenfu@crossjs.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "commander": "^2.6.0",
+    "dong-init": "^0.0.0",
+    "dong-serve": "^0.0.0",
+    "update-notifier": "^0.3.1"
+  }
+}

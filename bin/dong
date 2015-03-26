@@ -75,13 +75,15 @@ commander
   .option('-p, --port <port>', '监听端口，默认 `9527`')
   .option('-m, --mock <mock>', '接口模拟数据路径，默认 `api`')
   .option('-o, --open', '自动在浏览器打开，默认 `false`')
+  .option('-d, --debug', '显示 DEBUG 信息，默认 `false`')
   .action(function() {
     require('dong-serve')({
       root: this.root,
       host: this.host,
       port: this.port,
       mock: this.mock,
-      open: this.open
+      open: this.open,
+      debug: this.debug
     })
   })
 

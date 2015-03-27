@@ -2,6 +2,13 @@
 
 [![NPM version](https://img.shields.io/npm/v/dong.svg?style=flat-square)](https://npmjs.org/package/dong)
 
+          ___
+      ____/ /___  ____  ____
+     / __  / __ \/ __ \/ __ \
+    / /_/ / /_/ / / / / /_/ /
+    \____/\____/_/ /_/\__, /
+                     /____/
+
 > yet another fed tool
 
 ## Install

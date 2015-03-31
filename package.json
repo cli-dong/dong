@@ -35,7 +35,7 @@
   "dependencies": {
     "chalk": "^0.5.1",
     "commander": "^2.6.0",
-    "dong-init": "^0.0.1",
+    "dong-init": "^0.0.2",
     "dong-serve": "^0.0.2",
     "update-notifier": "^0.3.1"
   }

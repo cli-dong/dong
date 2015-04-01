@@ -66,6 +66,14 @@ commander
     console.log('')
   })
 
+// patch
+commander
+  .command('patch')
+  .description('给 SPM 打补丁')
+  .action(function() {
+    require('dong-patch')()
+  })
+
 // serve
 commander
   .command('serve')

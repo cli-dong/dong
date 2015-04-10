@@ -70,8 +70,11 @@ commander
 commander
   .command('patch')
   .description('给 SPM 打补丁')
+  .option('-f, --force', '直接打补丁，不校验是否已打补丁')
   .action(function() {
-    require('dong-patch')()
+    require('dong-patch')({
+      force: this.force
+    })
   })
 
 // serve

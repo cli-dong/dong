@@ -36,3 +36,12 @@ dong serve
 ```
 
 > start a web server with static serve and api mocking.
+
+### build
+
+```bash
+dong build
+
+```
+
+> build view and static files.

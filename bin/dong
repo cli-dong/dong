@@ -77,6 +77,19 @@ commander
     })
   })
 
+// build
+commander
+  .command('build')
+  .description('静态文件构建，包括资源哈希值生成')
+  .option('-r, --root <root>', 'Web 服务根目录，默认 `.`')
+  .option('-v, --views', '视图文件，默认服务根目录下的 `*.html`')
+  .action(function() {
+    require('dong-build')({
+      root: this.root,
+      views: this.views
+    })
+  })
+
 // serve
 commander
   .command('serve')

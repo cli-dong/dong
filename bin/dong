@@ -23,6 +23,7 @@ var commander = require('commander')
 
 process.on('exit', function() {
   if (process.argv.length === 2) {
+    console.log('  Version: ' + commander.version())
     commander.help()
   }
 })

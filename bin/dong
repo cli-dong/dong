@@ -45,7 +45,7 @@ commander
       type = undefined
     }
     require('dong-init')({
-      type: type || 'web',
+      type: type || 'spa',
       force: options.force
     })
   })
@@ -53,11 +53,11 @@ commander
     console.log('  Examples:')
     console.log('')
     console.log(chalk.gray('    $ ') +
-                chalk.magenta('dong init web') +
-                chalk.gray(' ....... Web 项目'))
+                chalk.magenta('dong init spa') +
+                chalk.gray(' ....... 单页应用（Single Page Application）'))
     console.log(chalk.gray('    $ ') +
-                chalk.magenta('dong init sea') +
-                chalk.gray(' ....... SeaJS 及其配置文件'))
+                chalk.magenta('dong init web') +
+                chalk.gray(' ....... 普通 Web 项目'))
     console.log(chalk.gray('    $ ') +
                 chalk.magenta('dong init spm') +
                 chalk.gray(' ....... SPM 模块'))
@@ -83,14 +83,30 @@ commander
   .command('build')
   .description('静态文件构建，包括资源哈希值生成')
   .option('-r, --root <root>', 'Web 服务根目录，默认 `.`')
-  .option('-s, --size <size>', 'md5 串长度，默认 `8`')
   .option('-v, --views <views>', '视图文件，默认服务根目录下的 `*.html`')
-  .action(function() {
+  .option('-f, --force', '先清空输出目录')
+  .action(function(type, options) {
+    if (!options) {
+      options = type
+      type = undefined
+    }
     require('dong-build')({
-      root: this.root,
-      size: this.size,
-      views: this.views
+      type: type || 'spa',
+      root: options.root,
+      views: options.views,
+      force: options.force
     })
+  })
+  .on('--help', function(){
+    console.log('  Examples:')
+    console.log('')
+    console.log(chalk.gray('    $ ') +
+                chalk.magenta('dong build spa') +
+                chalk.gray(' ....... Single Page Application'))
+    console.log(chalk.gray('    $ ') +
+                chalk.magenta('dong build web') +
+                chalk.gray(' ....... General Web Project'))
+    console.log('')
   })
 
 // serve

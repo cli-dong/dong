@@ -25,19 +25,46 @@ $ npm install -g dong
 $ dong [command] －h
 ```
 
-### 初始化
+### 初始化项目
 
 ```bash
 $ dong init [type]
-```
 
-#### Web 项目
+# Single Page Application
+$ dong init spa
 
-```bash
+# General Web Project
 $ dong init web
 ```
 
-### Web 服务
+### 项目构建
+
+```bash
+dong build [type]
+
+# Single Page Application
+$ dong build spa
+
+# General Web Project
+$ dong build web
+```
+
+**参数**
+
+```bash
+-r, --root <root>    Web 服务根目录，默认 `.`
+-v, --views <views>  视图文件，默认 Web 服务根目录下的 `*.html`
+-f, --force          先清空输出目录`
+```
+
+**特性**
+
+- [x] JS 文件打包压缩
+- [x] 资源 MD5 值生成
+- [x] 资源链接添加 MD5 串
+- [ ] CSS 文件生成于压缩
+
+### 启动 Web 服务
 
 ```bash
 $ dong serve
@@ -60,27 +87,6 @@ $ dong serve
 - [x] 模拟接口请求
 - [ ] 自动编译 SCSS
 - [ ] 自动重启服务
-
-### build
-
-```bash
-dong build
-```
-
-**参数**
-
-```bash
--r, --root <root>    Web 服务根目录，默认 `.`
--s, --size <size>    MD5 串长度，默认 `8`
--v, --views <views>  视图文件，默认 Web 服务根目录下的 `*.html`
-```
-
-**特性**
-
-- [x] JS 文件打包压缩
-- [x] 资源 MD5 值生成
-- [x] 资源链接添加 MD5 串
-- [ ] CSS 文件生成于压缩
 
 ## TODOs
 

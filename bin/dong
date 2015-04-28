@@ -65,9 +65,14 @@ commander
   .command('patch')
   .description('给 SPM 打补丁')
   .option('-f, --force', '直接打补丁，不校验是否已打补丁')
-  .action(function() {
+  .action(function(type, options) {
+    if (!options) {
+      options = type
+      type = undefined
+    }
     require('dong-patch')({
-      force: this.force
+      type: type || 'manual',
+      force: options.force
     })
   })
 

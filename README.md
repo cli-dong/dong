@@ -15,6 +15,8 @@
 
 ```bash
 $ npm install -g dong
+# MUST
+$ dong patch
 ```
 
 ## 使用

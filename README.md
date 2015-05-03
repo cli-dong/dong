@@ -57,6 +57,7 @@ $ dong build web
 -r, --root <root>    Web 服务根目录，默认 `.`
 -v, --views <views>  视图文件，默认 Web 服务根目录下的 `*.html`
 -f, --force          先清空输出目录`
+-d, --debug          DEBUG, 仅生成 `config.js`
 ```
 
 **特性**

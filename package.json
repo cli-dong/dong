@@ -1,6 +1,6 @@
 {
   "name": "dong",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "description": "yet another fed tool",
   "bin": {
     "dong": "./bin/dong"

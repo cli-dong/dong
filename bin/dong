@@ -37,6 +37,7 @@ commander
 commander
   .command('init')
   .description('初始化项目文件')
+  .allowUnknownOption(true)
   .option('-f, --force', '直接覆盖，不做目录非空校验')
   .action(function(type, options) {
     if (!options) {
@@ -64,6 +65,7 @@ commander
 commander
   .command('patch')
   .description('给 SPM 打补丁')
+  .allowUnknownOption(true)
   .option('-f, --force', '直接打补丁，不校验是否已打补丁')
   .action(function(type, options) {
     if (!options) {
@@ -80,6 +82,7 @@ commander
 commander
   .command('build')
   .description('静态文件构建，包括资源哈希值生成')
+  .allowUnknownOption(true)
   .option('-r, --root <root>', 'Web 服务根目录，默认 `.`')
   .option('-v, --views <views>', '视图文件，默认服务根目录下的 `*.html`')
   .option('-f, --force', '先清空输出目录')
@@ -93,7 +96,8 @@ commander
       type: type || 'spa',
       root: options.root,
       views: options.views,
-      force: options.force
+      force: options.force,
+      debug: options.debug
     })
   })
   .on('--help', function(){
@@ -112,6 +116,7 @@ commander
 commander
   .command('serve')
   .description('启动 Web 服务')
+  .allowUnknownOption(true)
   .option('-r, --root <root>', 'Web 服务根目录，默认 `.`')
   .option('-H, --host <host>', '服务域名，默认 `127.0.0.1`')
   .option('-p, --port <port>', '监听端口，默认 `9527`')

@@ -95,3 +95,5 @@ $ dong serve
 
 - [ ] dong test
 - [ ] dong release
+- [ ] 增加代码检查（JSHINT）
+- [ ] 自动同步代码到 SVN

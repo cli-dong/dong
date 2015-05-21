@@ -66,8 +66,8 @@ commander
   .command('patch')
   .description('给 SPM 打补丁')
   .allowUnknownOption(true)
+  .option('-r, --registry <registry>', '自定义 NPM 源，如 `https://registry.npm.taobao.org`')
   .option('-f, --force', '直接打补丁，不校验是否已打补丁')
-  .option('-r, --registry', '自定义 NPM 源，如 `https://registry.npm.taobao.org`')
   .action(function(type, options) {
     if (!options) {
       options = type
@@ -75,8 +75,8 @@ commander
     }
     require('dong-patch')({
       type: type || 'manual',
-      force: options.force,
-      registry: options.registry
+      registry: options.registry,
+      force: options.force
     })
   })
 

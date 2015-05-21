@@ -7,7 +7,7 @@ require('update-notifier')({
   pkg: require('../package.json')
 }).notify({
   defer: false
-});
+})
 
 var chalk = require('chalk')
 

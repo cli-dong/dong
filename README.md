@@ -19,6 +19,8 @@ $ npm install -g dong
 $ dong patch
 ```
 
+国内环境，对以上两个命令添加参数 `--registry https://registry.npm.taobao.org`，可提高安装速度
+
 ## 使用
 
 ### 查看帮助
@@ -57,7 +59,7 @@ $ dong build web
 -r, --root <root>    Web 服务根目录，默认 `.`
 -v, --views <views>  视图文件，默认 Web 服务根目录下的 `*.html`
 -f, --force          先清空输出目录
--d, --debug          DEBUG, 仅生成 `config.js`
+-d, --debug          DEBUG, 仅生成 `seajs 及其 config.js`
 ```
 
 **特性**
@@ -95,5 +97,5 @@ $ dong serve
 
 - [ ] dong test
 - [ ] dong release
-- [ ] 增加代码检查（JSHINT）
+- [x] 增加代码检查（JSHINT）
 - [ ] 自动同步代码到 SVN

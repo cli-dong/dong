@@ -1,6 +1,6 @@
 {
   "name": "dong",
-  "version": "0.2.20",
+  "version": "0.2.21",
   "description": "yet another fed tool",
   "bin": {
     "dong": "./bin/dong"
@@ -37,7 +37,7 @@
     "commander": "^2.6.0",
     "dong-build": "^0.1.5",
     "dong-init": "^0.1.8",
-    "dong-patch": "^0.1.9",
+    "dong-patch": "^0.1.10",
     "dong-serve": "^0.0.8",
     "update-notifier": "^0.3.1"
   }

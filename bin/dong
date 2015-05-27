@@ -89,7 +89,7 @@ commander
   .option('-v, --views <views>', '视图文件，默认服务根目录下的 `*.html`')
   .option('-i, --i18n <i18n>', '需要构建的语言版本，默认不区分语言')
   .option('-f, --force', '先清空输出目录')
-  .option('-d, --debug', 'DEBUG, 仅生成 `config.js`')
+  .option('-d, --debug', 'DEBUG, 仅生成 `seajs, config.js`')
   .action(function(type, options) {
     if (!options) {
       options = type

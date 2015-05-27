@@ -23,13 +23,13 @@ $ dong patch
 
 ## 使用
 
-### 查看帮助
+### 1、查看帮助
 
 ```bash
 $ dong [command] －h
 ```
 
-### 初始化项目
+### 2、初始化项目
 
 ```bash
 $ dong init [type]
@@ -41,10 +41,10 @@ $ dong init spa
 $ dong init web
 ```
 
-### 项目构建
+### 3、项目构建
 
 ```bash
-dong build [type]
+$ dong build [type]
 
 # Single Page Application
 $ dong build spa
@@ -58,18 +58,26 @@ $ dong build web
 ```bash
 -r, --root <root>    Web 服务根目录，默认 `.`
 -v, --views <views>  视图文件，默认 Web 服务根目录下的 `*.html`
+-i, --i18n <i18n>    需要构建的语言版本，默认不区分语言
 -f, --force          先清空输出目录
 -d, --debug          DEBUG, 仅生成 `seajs 及其 config.js`
 ```
 
 **特性**
 
+- [x] 增加代码检查（JSHINT）
 - [x] JS 文件打包压缩
 - [x] 资源 MD5 值生成
 - [x] 资源链接添加 MD5 串
 - [ ] CSS 文件生成于压缩
 
-### 启动 Web 服务
+### 4、生成语言包（待翻译）
+
+```bash
+$ dong i18n
+```
+
+### 5、启动 Web 服务
 
 ```bash
 $ dong serve
@@ -95,7 +103,4 @@ $ dong serve
 
 ## TODOs
 
-- [ ] dong test
-- [ ] dong release
-- [x] 增加代码检查（JSHINT）
 - [ ] 自动同步代码到 SVN

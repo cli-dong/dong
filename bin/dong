@@ -121,11 +121,8 @@ commander
   .command('i18n')
   .description('语言包（待翻译）生成工具')
   .allowUnknownOption(true)
-  .option('-f, --force', '直接覆盖旧语言文件')
   .action(function() {
-    require('dong-i18n')({
-      force: this.force
-    })
+    require('dong-i18n')()
   })
 
 // serve

@@ -1,6 +1,6 @@
 {
   "name": "dong",
-  "version": "0.2.27",
+  "version": "0.3.0",
   "description": "yet another fed tool",
   "bin": {
     "dong": "./bin/dong"
@@ -13,19 +13,27 @@
     "url": "http://github.com/crossjs/dong"
   },
   "keywords": [
-    "fed", "tool",
-    "spm", "seajs",
-    "mock", "api",
-    "scaffold", "scaffolding"
+    "fed",
+    "tool",
+    "spm",
+    "seajs",
+    "mock",
+    "api",
+    "scaffold",
+    "scaffolding",
+    "build",
+    "md5"
   ],
   "author": {
     "name": "crossjs",
     "email": "liwenfu@crossjs.com"
   },
-  "licenses": [{
-    "type": "MIT",
-    "url": "https://github.com/crossjs/dong/blob/master/LICENSE-MIT"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/crossjs/dong/blob/master/LICENSE-MIT"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/crossjs/dong/issues"
   },
@@ -33,11 +41,12 @@
   "dependencies": {
     "chalk": "^0.5.1",
     "commander": "^2.6.0",
-    "dong-build": "^0.1.8",
-    "dong-i18n": "^0.0.3",
-    "dong-init": "^0.1.11",
-    "dong-patch": "^0.1.10",
-    "dong-serve": "^0.1.0",
+    "dong-build": "^0.3.0",
+    "dong-i18n": "^0.3.0",
+    "dong-init": "^0.3.0",
+    "dong-patch": "^0.3.0",
+    "dong-serve": "^0.3.1",
+    "extend": "^2.0.1",
     "update-notifier": "^0.3.1"
   }
 }

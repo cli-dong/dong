@@ -15,6 +15,12 @@ var chalk = require('chalk')
 var commander = require('commander')
 var extend = require('extend')
 
+commander
+  // version
+  .version(require('../package').version)
+  // usage
+  .usage('<command> [options]')
+
 process.on('exit', function() {
   if (process.argv.length === 2) {
     console.log(chalk.cyan('        ___                 '))
@@ -95,13 +101,7 @@ function addCommand(config) {
   }
 }
 
-commander
-  // version
-  .version(require('../package').version)
-  // usage
-  .usage('<command> [options]')
-
-;['init', 'patch', 'build', 'i18n', 'serve']
+['init', 'patch', 'build', 'i18n', 'serve']
 .forEach(function(cmd) {
   addCommand(require('dong-' + cmd))
 })

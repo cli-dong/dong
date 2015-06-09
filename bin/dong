@@ -9,14 +9,11 @@ require('update-notifier')({
   defer: false
 })
 
-var existsSync = require('fs').existsSync
 var join = require('path').join
 
 var chalk = require('chalk')
 var commander = require('commander')
 var extend = require('extend')
-
-var pkgDest = join(process.cwd(), 'package.json')
 
 commander
   // version
@@ -24,105 +21,102 @@ commander
   // usage
   .usage('<command> [options]')
 
+var existsSync = require('fs').existsSync
+
+var pkgDest = join(process.cwd(), 'package.json')
 var pkgExist = existsSync(pkgDest)
 
-if (pkgExist) {
-  (function(commands) {
-    var pkg = require(pkgDest)
-    var slice = Array.prototype.slice
+var pkg = pkgExist ? require(pkgDest) : null
+var slice = Array.prototype.slice
 
-    function addCommand(config) {
-      var options = config.options
+function addCommand(config) {
+  var options = config.options
 
-      var defaults = {}
+  var defaults = {}
 
-      var cmd = commander
-        .command(config.command)
-        .description(chalk.cyan(config.description))
-        .allowUnknownOption(true)
+  var cmd = commander
+    .command(config.command)
+    .description(chalk.cyan(config.description))
+    .allowUnknownOption(true)
 
-      if (options) {
-        options.forEach(function(option) {
-          var str = '--' + option.name
+  if (options) {
+    options.forEach(function(option) {
+      var str = '--' + option.name
 
-          if (typeof option.defaults !== 'boolean') {
-            if (option.optional) {
-              str += ' [' + option.name + ']'
-            } else {
-              str += ' <' + option.name + '>'
-            }
-          }
-
-          if (option.alias) {
-            str = '-' + option.alias + ', ' + str
-          }
-
-          cmd.option(str, chalk.green('(' + option.defaults + ') ') + option.description)
-
-          defaults[option.name] = option.defaults
-        })
+      if (typeof option.defaults !== 'boolean') {
+        if (option.optional) {
+          str += ' [' + option.name + ']'
+        } else {
+          str += ' <' + option.name + '>'
+        }
       }
 
-      extend(defaults, pkg && pkg.dong)
-
-      cmd.action(function() {
-        var args = slice.call(arguments)
-        var opts
-
-        if (args.length) {
-          opts = args.pop()
-        }
-
-        if (opts) {
-          Object.keys(defaults)
-          .forEach(function(name) {
-            if (opts.hasOwnProperty(name)) {
-              defaults[name] = opts[name]
-            }
-          })
-        }
-
-        defaults.pkg = pkg
-
-        config.bootstrap.apply(null, args.concat(defaults))
-      })
-
-      if (config.help) {
-        cmd.on('--help', function() {
-          config.help(chalk)
-        })
+      if (option.alias) {
+        str = '-' + option.alias + ', ' + str
       }
+
+      cmd.option(str, chalk.green('(' + option.defaults + ') ') + option.description)
+
+      defaults[option.name] = option.defaults
+    })
+  }
+
+  extend(defaults, pkg && pkg.dong)
+
+  cmd.action(function() {
+    if (config.strict && !pkg) {
+      console.log('')
+      console.log(chalk.red('  缺少 package.json 文件，请检查'))
+      return
     }
 
-    commands.forEach(function(cmd) {
-      addCommand(require('dong-' + cmd))
+    var args = slice.call(arguments)
+    var opts
+
+    if (args.length) {
+      opts = args.pop()
+    }
+
+    if (opts) {
+      Object.keys(defaults)
+      .forEach(function(name) {
+        if (opts.hasOwnProperty(name)) {
+          defaults[name] = opts[name]
+        }
+      })
+    }
+
+    defaults.pkg = pkg
+
+    config.bootstrap.apply(null, args.concat(defaults))
+  })
+
+  if (config.help) {
+    cmd.on('--help', function() {
+      config.help(chalk)
     })
-  })(['init', 'patch', 'build', 'i18n', 'serve'])
+  }
 }
+
+['init', 'patch', 'build', 'i18n', 'serve']
+.forEach(function(cmd) {
+  addCommand(require('dong-' + cmd))
+})
 
 commander.parse(process.argv)
 
 process.on('exit', function() {
   if (process.argv.length === 2) {
-    if (pkgExist) {
-      console.log(chalk.cyan('        ___                 '))
-      console.log(chalk.cyan('    ____/ /___  ____  ____  '))
-      console.log(chalk.cyan('   / __  / __ \\/ __ \\/ __ \\ '))
-      console.log(chalk.cyan('  / /_/ / /_/ / / / / /_/ / '))
-      console.log(chalk.cyan('  \\____/\\____/_/ /_/\\__, /  '))
-      console.log(chalk.cyan('                   /____/   '))
-    }
+    console.log(chalk.cyan('        ___                 '))
+    console.log(chalk.cyan('    ____/ /___  ____  ____  '))
+    console.log(chalk.cyan('   / __  / __ \\/ __ \\/ __ \\ '))
+    console.log(chalk.cyan('  / /_/ / /_/ / / / / /_/ / '))
+    console.log(chalk.cyan('  \\____/\\____/_/ /_/\\__, /  '))
+    console.log(chalk.cyan('                   /____/   '))
 
     console.log('')
     console.log('  Version: ' + commander.version())
 
-    if (pkgExist) {
-      commander.help()
-    }
-  }
-
-  if (!pkgExist) {
-    console.log('')
-    console.log(chalk.red('  缺少 package.json 文件，请检查'))
+    commander.help()
   }
 })

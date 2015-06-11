@@ -103,7 +103,7 @@ $ dong serve
 - [ ] 自动编译 SCSS
 - [ ] 自动重启服务
 
-### 5、代码检查
+### 6、代码检查
 
 ```bash
 $ dong check

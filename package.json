@@ -1,6 +1,6 @@
 {
   "name": "dong",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "description": "yet another fed tool",
   "bin": {
     "dong": "./bin/dong"
@@ -41,7 +41,7 @@
   "dependencies": {
     "chalk": "^0.5.1",
     "commander": "^2.6.0",
-    "dong-build": "^0.3.10",
+    "dong-build": "^0.3.11",
     "dong-check": "^0.0.1",
     "dong-i18n": "^0.3.1",
     "dong-init": "^0.3.2",

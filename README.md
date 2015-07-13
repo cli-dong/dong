@@ -21,6 +21,14 @@ $ dong patch
 
 国内环境，对以上两个命令添加参数 `--registry https://registry.npm.taobao.org`，可提高安装速度
 
+## 更新
+
+```bash
+$ dong update -R
+```
+
+更新后会自动执行 `dong patch -R`
+
 ## 使用
 
 ### 1、查看帮助

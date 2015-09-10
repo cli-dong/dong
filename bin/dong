@@ -98,7 +98,7 @@ function addCommand(config) {
   }
 }
 
-['init', 'patch', 'build', 'i18n', 'serve', 'check']
+['init', 'patch', 'build', 'i18n', 'serve', 'check', 'java']
 .forEach(function(cmd) {
   addCommand(require('dong-' + cmd))
 })

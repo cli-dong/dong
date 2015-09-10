@@ -1,6 +1,6 @@
 {
-  "name": "dong-test",
-  "version": "0.3.15",
+  "name": "dong",
+  "version": "0.5.2",
   "description": "yet another fed tool",
   "bin": {
     "dong": "./bin/dong"
@@ -47,6 +47,7 @@
     "dong-init": "^0.3.3",
     "dong-patch": "^0.3.1",
     "dong-serve": "^0.3.4",
+    "dong-java": "^1.0.4",
     "extend": "^2.0.1",
     "update-notifier": "^0.3.1"
   }

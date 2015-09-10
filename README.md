@@ -85,6 +85,13 @@ $ dong i18n
 $ dong serve
 ```
 
+### 6、更新 Java 文件
+
+```bash
+$ dong java
+```
+详见[dong-java](https://github.com/aoiu/dong-java)
+
 **参数**
 
 ```bash

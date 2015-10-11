@@ -1,6 +1,6 @@
 {
   "name": "dong",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "yet another fed tool",
   "bin": {
     "dong": "./bin/dong"
@@ -13,16 +13,8 @@
     "url": "http://github.com/crossjs/dong"
   },
   "keywords": [
-    "fed",
-    "tool",
-    "spm",
-    "seajs",
-    "mock",
-    "api",
-    "scaffold",
-    "scaffolding",
-    "build",
-    "md5"
+    "fed", "tool", "spm", "seajs", "mock", "api",
+    "scaffold", "scaffolding", "build", "md5", "jsdoc"
   ],
   "author": {
     "name": "crossjs",
@@ -43,6 +35,7 @@
     "commander": "^2.6.0",
     "dong-build": "^0.4.4",
     "dong-check": "^0.0.1",
+    "dong-doc": "^0.0.0",
     "dong-i18n": "^0.3.5",
     "dong-init": "^0.3.5",
     "dong-patch": "^0.3.4",

@@ -64,6 +64,8 @@ function addCommand(config) {
   extend(defaults, pkg && pkg.dong)
 
   cmd.action(function() {
+    // 必须在项目根目录下执行
+    // 即：需要有 package.json
     if (config.strict && !pkg) {
       console.log('')
       console.log(chalk.red('  缺少 package.json 文件，请检查'))
@@ -98,7 +100,10 @@ function addCommand(config) {
   }
 }
 
-['build', 'check', 'doc', 'i18n', 'init', 'patch', 'serve', 'update']
+[
+  'build', 'check', 'doc', 'i18n',
+  'init', 'patch', 'serve', 'update'
+]
 .forEach(function(cmd) {
   addCommand(require('dong-' + cmd))
 })

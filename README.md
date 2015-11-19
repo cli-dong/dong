@@ -147,6 +147,18 @@ $ dong doc
 -d, --debug        显示调试信息
 ```
 
+### 8、更新 JAVA 部分代码
+
+```bash
+$ dong java
+```
+
+**参数**
+
+```bash
+-d, --debug        显示调试信息
+```
+
 ## TODOs
 
 - [ ] 自动同步代码到 SVN

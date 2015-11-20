@@ -21,6 +21,8 @@ $ dong patch
 
 国内环境，对以上两个命令添加参数 `--registry https://registry.npm.taobao.org`，可提高安装速度
 
+如果安装失败，可能需要添加 `--force` 参数，参见 NPM 的一个 [BUG](https://github.com/npm/npm/issues/9696)
+
 ## 更新
 
 ```bash

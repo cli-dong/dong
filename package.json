@@ -38,7 +38,7 @@
     "dong-doc": "^0.0.1",
     "dong-i18n": "^0.4.4",
     "dong-init": "^0.3.7",
-    "dong-java": "^0.5.1",
+    "dong-java": "^0.5.2",
     "dong-patch": "^0.3.4",
     "dong-serve": "^0.3.4",
     "dong-update": "^0.1.2",

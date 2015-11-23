@@ -1,6 +1,8 @@
 # dong
 
 [![NPM version](https://img.shields.io/npm/v/dong.svg?style=flat-square)](https://npmjs.org/package/dong)
+![David](http://img.shields.io/david/tetojs/teto.js.svg?style=flat-square)
+![David](http://img.shields.io/david/dev/tetojs/teto.js.svg?style=flat-square)
 
           ___
       ____/ /___  ____  ____

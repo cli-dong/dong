@@ -160,7 +160,8 @@ $ dong java
 **参数**
 
 ```bash
--d, --debug        显示调试信息
+-r, --repository <repository>  克隆源
+-d, --debug                    显示调试信息
 ```
 
 ## TODOs
